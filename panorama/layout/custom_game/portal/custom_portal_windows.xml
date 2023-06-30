@@ -1,0 +1,201 @@
+<root type="HeroSelection"> 
+    <styles>
+        <include src="file://{resources}/styles/custom_game/portal/custom_portal_windows.css" />
+        <include src="file://{resources}/styles/custom_game/card/custom_player_card.css" />
+    </styles>
+    <scripts>
+        <include src="file://{resources}/scripts/custom_game/common/common_util.js" />
+
+        <include src="file://{resources}/scripts/custom_game/task/camp_task.js" />
+
+        <include src="file://{resources}/scripts/custom_game/common/hero_info.js" />
+
+        <include src="file://{resources}/scripts/custom_game/common/player_position.js" />
+
+        <include src="file://{resources}/scripts/custom_game/core/core_game.js" />
+
+        <include src="file://{resources}/scripts/custom_game/portal/custom_portal_windows.js" />
+    </scripts>
+    <script>
+        (function () {
+            initData();
+        })();
+    </script>
+    <Panel class="PortalWindows">
+        <Panel class="PortalLeftMain">
+
+            <Panel class="PortalTop">
+
+            </Panel>
+
+            <Panel class="PortalMain">
+                <!-- 卡牌区 或者出牌区 -->
+                <Panel id="Player1" class="PlayerHeroInfo Hidden" index="1">
+                    <Panel class="PlayerImg">
+                        <Panel class="PlayerPanel">
+                            <Label id="Player1Name" text="" />
+                        </Panel>
+                        <Image id="Player1HeroImg" src="file://{images}/custom_game/card/10017_psd.png" />
+                    </Panel>
+                    <Panel class="PlayerAttr">
+                        <Panel></Panel>
+                    </Panel>
+                </Panel>
+
+                <Panel id="Player2" class="PlayerHeroInfo Hidden"  index="2">
+                    <Panel class="PlayerPanel">
+                        <Label id="Player2Name" text="" />
+                    </Panel>
+                    <Image id="Player2HeroImg" src="file://{images}/custom_game/card/10016_psd.png" />
+                </Panel>
+                <Panel id="Player3" class="PlayerHeroInfo Hidden"  index="3">
+                    <Panel class="PlayerPanel">
+                        <Label id="Player3Name" text="" />
+                    </Panel>
+                    <Image id="Player3HeroImg" src="file://{images}/custom_game/card/10014_psd.png" />
+                </Panel>
+                <Panel id="Player4" class="PlayerHeroInfo Hidden"  index="4">
+                    <Panel class="PlayerPanel">
+                        <Label id="Player4Name" text="" />
+                    </Panel>
+                    <Image id="Player4HeroImg" src="file://{images}/custom_game/card/10026_psd.png" />
+                </Panel>
+                <Panel id="Player5" class="PlayerHeroInfo Hidden"  index="5">
+                    <Panel class="PlayerPanel">
+                        <Label id="Player5Name" text="" />
+                    </Panel>
+                    <Image id="Player5HeroImg" src="file://{images}/custom_game/card/10022_psd.png" />
+                </Panel>
+                <Panel id="Player6" class="PlayerHeroInfo Hidden"  index="6">
+                    <Panel class="PlayerPanel">
+                        <Label id="Player6Name" text="" />
+                    </Panel>
+                    <Image id="Player6HeroImg" src="file://{images}/custom_game/card/10047_psd.png" />
+                </Panel>
+                <Panel id="Player7" class="PlayerHeroInfo Hidden"  index="7">
+                    <Panel class="PlayerPanel">
+                        <Label id="Player7Name" text="" />
+                    </Panel>
+                    <Image id="Player7HeroImg" src="file://{images}/custom_game/card/10054_psd.png" />
+                </Panel>
+                <Panel id="Player8" class="PlayerHeroInfo Hidden"  index="7">
+                    
+                </Panel>
+            </Panel>
+
+            
+            <Panel class="PortalRightSystem">
+                <Panel class="PortalSystemCampPanel">
+                    <!-- 天辉夜魇中立的数量-->
+                    <Label id="RadiantPlayerAliveNum" text="" />
+                    <Label id="DirePlayerAliveNum" text="" />
+                    <Label id="NeutralPlayerAliveNum" text="" />
+                </Panel>
+                <Panel class="PortalSystemNeutralCampTask">
+                    <!-- 中立的任务-->
+                    <Label id="NeutralCampTaskText" text="" />
+                </Panel>
+            </Panel>
+        </Panel>
+
+
+        <Panel class="PortalBottom">
+                <!-- 英雄名称 -->
+                 <Panel id="PortalBottomTeam">
+                    <Image id="PlayerTeam" src="file://{images}/custom_game/card/1098_psd.png" onmouseactivate="toggleClass('PlayerTeam','Hidden01')"
+                         onmouseover="DOTAShowTextTooltip('#YOUR_TEAM_DJ_HIDDEN')" onmouseout="DOTAHideTextTooltip()"/>
+                 </Panel>
+                <!-- 英雄头像 -->
+                <Panel id="PortalBottomHero">
+                    <Image id="HeroImg" src="file://{images}/custom_game/card/10006_psd.png" />
+                    <!-- 英雄技能 -->
+                    <Panel></Panel>
+                </Panel>
+                 <!-- 属性区 -->
+                <Panel id="PortalBottomAttr">
+                    <!-- JS生成 -->
+                    <!-- 攻击力 -->
+                    <Panel id="HeroAtk">
+                        <Image src="file://{images}/custom_game/icon/cardstat_attack_psd.png" onmouseover="DOTAShowTextTooltip('#ATK_DESC')" onmouseout="DOTAHideTextTooltip()" />
+                        <Label id="HeroAtkLabel" class="HeroAttr" text="#ATTACK_TEXT" />
+                        <Label id="HeroAtkValue" class="HeroAttr2" text="" />
+                     </Panel>
+                     <!-- 护甲 -->
+                     <Panel id="HeroDef">
+                        <Image src="file://{images}/custom_game/icon/cardstat_armor_psd.png" onmouseover="DOTAShowTextTooltip('#DEF_DESC')" onmouseout="DOTAHideTextTooltip()"  />
+                        <Label id="HeroDefLabel" class="HeroAttr" text="#DEF_TEXT" />
+                        <Label id="HeroDefValue" class="HeroAttr2" text="" />
+                     </Panel>
+                     <!-- 生命值 -->
+                     <Panel id="HeroHealth">
+                        <Image src="file://{images}/custom_game/icon/cardstat_health_psd.png" onmouseover="DOTAShowTextTooltip('#HEL_DESC')" onmouseout="DOTAHideTextTooltip()" />
+                        <Label id="HeroHealthLabel" class="HeroAttr" text="#HEL_TEXT" />
+                        <Label id="HeroHealthValue" class="HeroAttr2" text="" />
+                        <Label id="HeroHealthShu" class="HeroAttr3" text="/" />
+                        <Label id="HeroHealthMaxValue" class="HeroAttr4" text="" />
+                     </Panel>
+                     <!-- 怒气 -->
+                     <Panel id="HeroAnger">
+                        <Image src="file://{images}/custom_game/icon/cardtype_spell_02_psd.png" onmouseover="DOTAShowTextTooltip('#ANG_DESC')" onmouseout="DOTAHideTextTooltip()" />
+                        <Label id="HeroAngerLabel" class="HeroAttr" text="#ANGER_TEXT" />
+                        <Label id="HeroAngerValue" class="HeroAttr2" text="" />
+                        <Label id="HeroAngerShu" class="HeroAttr3" text="/" />
+                        <Label id="HeroAngerMaxValue" class="HeroAttr4" text="" />
+                     </Panel>
+                      <!-- 卡牌数 -->
+                     <Panel id="HeroCardNum">
+                        <Image src="file://{images}/custom_game/icon/bold_psd.png" onmouseover="DOTAShowTextTooltip('#CAR_DESC')" onmouseout="DOTAHideTextTooltip()" />
+                        <Label id="HeroCardNumLabel" class="HeroAttr" text="#CARD_NUM_TEXT" />
+                        <Label id="HeroCardNumValue" class="HeroAttr2" text="" />
+                        <Label id="HeroCardNumShu" class="HeroAttr3" text="/" />
+                        <Label id="HeroCardNumMaxValue" class="HeroAttr4" text="" />
+                     </Panel>
+                     <!-- 金币 -->
+                     <Panel id="HeroGold">
+                        <Image src="file://{images}/custom_game/icon/card_gold_icon_png.png" onmouseover="DOTAShowTextTooltip('#GOL_DESC')" onmouseout="DOTAHideTextTooltip()" />
+                        <Label id="HeroGoldNumLabel" class="HeroAttr" text="#GOLD_TEXT" />
+                        <Label id="HeroGoldNumValue" class="HeroAttr2" text="" />
+                     </Panel>
+                </Panel>
+
+                <!-- 卡牌区 -->
+                <Panel id="PortalBottomCardList" index="0">
+
+                    <Panel class="PlayerCards Normal">
+                        <Label class="CardTitle" text="攻击" />
+                        <Image class="CardImage" src="file://{images}/custom_game/card/item/icon_vs_psd.png" />
+                        <Panel class="CardDesc">
+                            <Label class="CardTitle" text="使用此牌指定一名玩家，对其造成物理伤害" />
+                        </Panel>
+                    </Panel>
+
+                    <Panel class="PlayerCards Normal pass2" index="1">
+                        <Label class="CardTitle" text="攻击" />
+                        <Image class="CardImage" src="file://{images}/custom_game/card/item/icon_vs_psd.png" />
+                        <Panel class="CardDesc">
+                            <Label class="CardTitle" text="使用此牌指定一名玩家，对其造成物理伤害" />
+                        </Panel>
+                    </Panel>
+
+                    <Panel class="PlayerCards Skill pass3" index="2">
+                        <Label class="CardTitle" text="引导" />
+                        <Image class="CardImage" src="file://{images}/custom_game/card/item/10366_psd.png" />
+                        <Panel class="CardDesc">
+                            <Label class="CardTitle" text="使用此牌指定一名玩家，对其造成物理伤害" />
+                        </Panel>
+                    </Panel>
+
+                    
+
+                    <Panel class="PlayerCards Item pass4" index="2">
+                        <Label class="CardTitle" text="隐刃" />
+                        <Image class="CardImage" src="file://{images}/custom_game/card/item/11014_psd.png" />
+                        <Panel class="CardDesc">
+                            <Label class="CardTitle" text="使用此牌指定一名玩家，对其造成物理伤害" />
+                        </Panel>
+                    </Panel>
+                </Panel>
+
+            </Panel>
+    </Panel>
+</root>

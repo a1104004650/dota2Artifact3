@@ -1,0 +1,34 @@
+<root>
+    <script>
+		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_HEROES, false );
+		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_FLYOUT_SCOREBOARD, false );
+        GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ACTION_PANEL, false );
+		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ACTION_MINIMAP, false );
+        GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_SHOP, false );
+        GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_ITEMS, false );
+        GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_QUICKBUY, false );
+        GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_COURIER, false );
+        GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_PANEL, false );
+        GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_GOLD, false );
+        GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_SHOP_SUGGESTEDITEMS, false );
+        GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_HERO_SELECTION_TEAMS, false );
+        GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_HERO_SELECTION_CLOCK, false );
+	</script>
+    <scripts>
+        <include src="file://{resources}/scripts/custom_game/custom_ui_maifest.js" />
+    </scripts>
+    <Panel>
+        <!-- 游戏模式选择，归票 loading结束后 -->
+		<!-- <CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/portal/custom_portal_mode_select.xml" /> -->
+        <!-- 英雄选择阶段（准备阶段就没了） -->
+        <CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/hero/hero_select_screen.xml" />
+        <!-- 游戏开始时 -->
+        <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/portal/custom_portal_windows.xml" />
+        <!-- GameInfo 用于显示自定义游戏的快速信息的特殊面板。在整个游戏过程中，可通过从游戏设置开始的“i”信息选项卡访问。 -->
+        <!-- FlyoutScoreboard 当玩家使用“+showscores”命令或“记分牌”菜单按钮时，记分牌可见。 -->
+        <!-- HudTopBar 类似于 HUD，但在游戏结束时也可见。 -->
+        <!-- EndScreen 游戏结束后可见 -->
+        <!-- PregameStrategy 赛前策略 -->
+        <!-- <CustomUIElement type="PregameStrategy" layoutfile="file://{resources}/layout/custom_game/portal/custom_skip.xml" /> -->
+	</Panel>
+</root>

@@ -1,0 +1,42 @@
+Label {
+    font-family: defaultFont;
+}
+
+RadioButton {
+    background-color: none;
+    color: white;
+}
+
+RadioButton:selected > .RadioBox {
+    background-color: gradient( radial, 50% 50%, 0% 0%, 50% 50%, from( #e7f6f5 ), to( #333399 ) );
+    border: 3px solid #000000;
+    box-shadow: #5b62bf77 0px 0px 6px 0px;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+RadioButton > .RadioBox {
+    min-width: 20px;
+    min-height: 20px;
+    border-radius: 50%;
+    background-color: gradient( radial, 50% 50%, 0% 0%, 10% 10%, from( #000000 ), to( #000000 ) );
+    border: 2px solid #5e686966;
+    box-shadow: #00000055 0px 0px 1px 3px;
+    transition-property: background-color, box-shadow, color, border;
+    transition-duration: 0.20s;
+    transition-timing-function: ease-in-out;
+}
+
+RadioButton > .RadioBox:hover {
+    background-color: gradient( radial, 50% 50%, 0% 0%, 50% 50%, from( #e7f6f5 ), to( #333399 ) );
+    box-shadow: #5b62bf77 0px 0px 6px 0px;
+    border: 3px solid #000000;
+}
+
+RadioButton:selected > Label {
+    color: white;
+    transition-property: color, text-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+}

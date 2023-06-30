@@ -1,0 +1,23 @@
+<root>
+    <styles>
+        <include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
+    </styles>
+    <scripts>
+        <include src="file://{resources}/scripts/custom_game/custom_loading_screen.js" />
+    </scripts>
+    <script>
+        (function () {
+            initLoading();
+        })();
+    </script>
+    <Panel class="PanelClass" hittest="false">
+        <Panel class="Panball" onactivate="getGuideTxt()">
+            <!-- 底部新手指引-->
+            <Label text= "#GAME_MSG_GUIDE_TITLE"  />
+            <Label id="grideText" />
+        </Panel>
+        <Panel class="PanelLogo">
+            <!-- logo -->
+        </Panel>
+    </Panel>
+</root>

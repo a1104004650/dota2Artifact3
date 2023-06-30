@@ -1,0 +1,118 @@
+.PortalWindows {
+    margin-top:40px;
+    width: 100%;
+    height:100%;
+    background-image: url("file://{resources}/images/custom_game/texture/popup_rank_bg_png.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    flow-children: down;
+}
+.PortalTop {
+    width: 100%;
+    height: 2%;
+    z-index:50 ;
+    background-image: url("file://{resources}/images/custom_game/texture/header_banner_png.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.PortalMain {
+    margin-top:2%;
+    padding: 10px;
+    width: 85%;
+    height: 100%;
+    background-image: url("file://{resources}/images/custom_game/texture/v2_background_psd_W.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    z-index:50 ;
+}
+
+.PortalRightSystem {
+    margin-left: 85%;
+    width: 15%;
+    height:100%;
+    background-color: rgb(223, 21, 230);
+    z-index:50 ;
+    background-image: url("file://{resources}/images/custom_game/texture/background_deck_editor_tab_buy_cards_psd.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.PortalLeftMain {
+    width: 100%;
+    height: 72%;
+    z-index:50 ;
+}
+
+.PortalBottom {
+    width: 100%;
+    height: 30%;
+    z-index:50 ;
+    flow-children: right;
+}
+
+.PortalBottom #PortalBottomTeam {
+    width: 5%;
+    height: 100%;
+    z-index: 90;
+    background-image: url("file://{resources}/images/custom_game/card/deckart_randommode_psd.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.PortalBottom #PortalBottomHero {
+    width: 13%;
+    height: 100%;
+    z-index: 90;
+}
+
+.PortalBottom #PortalBottomHero #HeroImg{
+    width: 100%;
+    height: 100%;
+}
+
+.PortalBottom #PortalBottomAttr {
+    width: 8%;
+    height: 100%;
+    z-index: 90;
+    color: rgb(212, 212, 212);
+    font-weight: bold;
+    background-image: url("file://{resources}/images/custom_game/texture/card_nonactive_psd.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding: 15px 5px;
+    flow-children: down;
+}
+
+.PortalBottom #PortalBottomAttr Panel{
+    padding: 10px;
+    height: 14%;
+    width: 100%;
+    flow-children: right;
+}
+
+.PortalBottom #PortalBottomAttr Panel Label{
+    margin-left: 4px;
+    font-size: 15px;
+    line-height: 10px;
+}
+
+.PortalBottom #PortalBottomAttr Image{
+    height: 20px;
+    width: 20px;
+}
+
+.PortalBottom #PortalBottomCardList {
+    padding: 10px 10px 5px 100px;
+    height: 100%;
+    width: 100%;
+    flow-children: right;
+}
+
+.Hidden01 {
+    opacity: 0;
+}
+
+.Hidden01 {
+    opacity: 0.01;
+}

@@ -1,0 +1,42 @@
+<root>
+    <styles>
+        <include src="file://{resources}/styles/custom_game/common/common.css" />
+        <include src="file://{resources}/styles/custom_game/portal/custom_portal_mode_select.css" />
+    </styles>
+    <scripts>
+        <include src="file://{resources}/scripts/custom_game/common/common_util.js" />
+
+        <include src="file://{resources}/scripts/custom_game/portal/custom_portal_mode_select.js" />
+    </scripts>
+    <script>
+        (function () {
+            initData();
+        })();
+    </script>
+    <Panel hittest="false" style="width: 100%; height: 100%;">
+        
+        <!-- 模式选择盒子 -->
+        <Panel id="ModeSelectPanel" hittest="false">
+        
+            <!-- 当前人数显示 -->
+            <Label id="PlayerNumLabel" text="#CUSTOM_PORTAL_MODE_SELECT_ONLI_MSG" />
+
+            <Label id="GameModeSelectLabel" text="#GAME_MODE_SELECT_TEXT" />
+
+            <!-- 中立玩家数选择 -->
+            <Panel id="NeutralNumPanel">
+                <Label class="NeutralNumLabel" text="#NEUTRAL_PLAYER_NUM_TEXT" />
+                <RadioButton group="NeutralNumRadio" id="NeutralNumRadio0" class="NeutralNumPanelRadio" text="0"/>
+                <RadioButton checked="checked" group="NeutralNumRadio" id="NeutralNumRadio1" class="NeutralNumPanelRadio" text="1"/>
+                <RadioButton group="NeutralNumRadio" id="NeutralNumRadio2" class="NeutralNumPanelRadio" text="2"/>
+            </Panel>
+
+            <!-- 多功能场 -->
+
+            <Button class="ReadyButton" onactivate="OnReady()">
+                <Label class="ReadyLabel" text="#READY_TEXT" />
+            </Button>
+            
+        </Panel>
+    </Panel>
+</root>

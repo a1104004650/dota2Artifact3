@@ -1,0 +1,218 @@
+.HeroSelectPanel {
+    background-image: url("file://{resources}/images/custom_game/texture/calltoarms_bg_psd.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+}
+
+.Header { 
+    width: 70%;
+    height: 40%;
+    margin-left: 15%;
+    padding: 25px;
+}
+
+.HeroSelectCampPanel {
+    height: 40%;
+    width: 100%;
+    padding: 20px;
+    margin-top: 15%;
+    background-image: url("file://{resources}/images/custom_game/texture/mappanel_png.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.HeroSelectVSCampPanel {
+    flow-children: right;
+}
+
+.HeroSelectVSCampPanel Label {
+    font-weight: bold;
+    color: white;
+    font-size: 100px;
+    margin-left: 60px;
+}
+
+.HeroSelectVSCampPanel Image {
+    margin-left: 60px;
+}
+
+#TimeInt {
+    font-weight: bold;
+    color: white;
+    font-size: 52px;
+    horizontal-align: center;
+}
+
+.CampImg,
+.CampImg2,
+.CampImg3 {
+    height: 150px;
+    width: 120px;
+}
+
+
+#NeutralTaskPanel {
+    background-image: url("file://{resources}/images/custom_game/texture/duos_header_02_psd.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding: 15px;
+    horizontal-align: center;
+    height: 15%;
+    width: 100%;
+    margin-top: 60%;
+}
+
+#NeutralTaskText {
+    font-weight: bold;
+    color: white;
+    font-size: 22px;
+}
+
+.HeroSelectBody {
+    width: 100%;
+    height: 50%;
+    margin-top: 35%;
+    flow-children: right;
+}
+
+.HeroSelectBody .HeroSelectTeamUI {
+    height: 100%;
+    width: 15%;
+    padding: 15px;
+    flow-children: down;
+}
+
+.HeroSelectBody .HeroSelectTeamUI Label {
+    color: white;
+    font-size: 30px;
+    horizontal-align: center;
+    margin-top: 8px;
+}
+
+.HeroSelectBody .HeroSelectTeamUI Image {
+    horizontal-align: center;
+    margin-top: 8px;
+}
+
+#HeroSelectPlayerTeam {
+    width: 70%;
+    height: 40%;
+}
+
+#HeroSelectNextPlayerTeam {
+    width: 70%;
+    height: 40%;
+}
+
+.HeroSelectBody .HeroSelectUI {
+    flow-children: right;
+    padding:50px;
+}
+
+.HeroSelectBody .HeroSelectUI Panel{
+    margin-left: 200px;
+}
+
+.HeroSelectBody .HeroSelectUI Label{
+    horizontal-align: center;
+    color: white;
+    font-size: 30px;
+    margin-top: 8px;
+}
+
+.HeroInfoPanel {
+    width: 60%;
+    height: 25%;
+    margin-top: 65%;
+    margin-left: 20%;
+    padding: 5px 20px;
+    flow-children: down;
+}
+
+.HeroInfoPanel Label {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.HeroInfoPanel .HeroInfoAttrPanel {
+    flow-children: right;
+}
+
+.HeroInfoPanel .HeroInfoAttrPanel Image{
+    height: 30px;
+    width: 30px;
+    margin-left: 20px;
+}
+
+.HeroInfoPanel .HeroInfoAttrPanel Label{
+    margin-left: 20px;
+}
+
+.HeroInfoPanel .HeroInfoSkillPanel {
+    flow-children: down;
+}
+
+.HeroInfoPanel .HeroInfoSkillPanel Image{
+    height: 30px;
+    width: 30px;
+    margin-left: 20px;
+}
+
+.HeroInfoPanel .HeroInfoSkillPanel Label{
+    margin-top:10px;
+    margin-left: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.Hidden Image{
+    visibility: collapse;
+}
+
+#Button
+{
+    width: 330px;
+    min-height: 36px;
+    box-shadow: #F78F9015 -4px -4px 8px 8px;
+    background-color: black;
+    border: 1px solid #aaaaaa;
+    horizontal-align: right;
+    vertical-align: bottom;
+    margin-bottom: 20px;
+    margin-top: 8px;
+    margin-left: 32px;
+    margin-right: 32px;
+    padding: 0px;
+    flow-children: down;
+    background-image: url("s2r://panorama/images/textures/glassbutton_darkmoon_hover_psd.vtex");
+    background-size: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    transition-property: box-shadow, background-image, background-color;
+    transition-duration: .16s;
+    transition-timing-function: ease-in-out;
+    border-radius: 6px;
+}
+#Button:hover
+{
+    background-image: url("s2r://panorama/images/textures/glassbutton_darkmoon_psd.vtex");
+    box-shadow: fill transparent 0px 0px 0px 0px;
+    border: 1px solid #555555;
+}
+.ButtonLabel
+{
+    width: 100%;
+    text-align: center;
+    margin-top: 3px;
+    font-size: 20px;
+    font-weight: thin;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 22px;
+    color: grey;
+}

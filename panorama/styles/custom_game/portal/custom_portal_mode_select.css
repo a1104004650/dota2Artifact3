@@ -1,0 +1,98 @@
+#ModeSelectPanel {
+	flow-children: down;
+    width: 500px;
+	height: 50%;
+	horizontal-align: center;
+	margin-bottom: 20px;
+	background-color: rgb(129, 126, 126);
+	background-size: 100% 300%;
+	background-position: 0px -60px;
+	padding: 20px 15px;
+	border-radius: 5px;
+    position: 0px 15% 0px;
+	opacity: 0.8;
+	opacity-mask: url("s2r://panorama/images/masks/armory_opacity_mask_png.vtex");
+}
+
+#GameModeSelectLabel {
+	font-size: 40px;
+	color:rgb(13, 60, 189);
+	font-weight: semi-bold;
+	horizontal-align: center;
+}
+
+#NeutralNum {
+    border-radius: 5px;
+}
+
+#NeutralNumPanel {
+	margin-top: 70px;
+}
+
+.NeutralNumPanelRadio {
+	vertical-align: middle;
+	color: #768e8d;
+	wash-color: white;
+	transition-property: wash-color;
+	transition-duration: 0.6s;
+	transition-timing-function: ease-in-out;
+	flow-children: right;
+}
+
+.NeutralNumPanelRadio .RadioBox {
+	visibility: collapse;
+}
+
+.NeutralNumPanelRadio Label:hover {
+	text-shadow: 0px 0px 12px #5d7070;
+}
+
+.NeutralNumPanelRadio:selected Label {
+    text-shadow: 0px 0px 12px #5d7070;
+}
+
+.NeutralNumPanelRadio Label {
+    text-transform: uppercase;
+}
+
+
+ 
+#NeutralNumRadio0 {
+	margin-left: 120px;
+}
+
+#NeutralNumRadio1 {
+	margin-left: 170px;
+}
+
+#NeutralNumRadio2 {
+	margin-left: 220px;
+}
+
+.ReadyButton {
+	width: 250px;
+	height: 50px;
+	horizontal-align: center;
+	margin-top: 11px;
+	background-color: gradient( linear, 0% 0%, 90% 100%, from( #042a0566 ), color-stop( 0.5, #15511c66 ), to( #042a0566 ) );
+	border:  1px solid #4C9C4F;
+	border-radius: 4px;
+	transition-property: brightness;
+	transition-duration: 0.2s;
+	margin-top: 50px;
+}
+
+.ReadyButton:hover {
+	brightness: 2;
+}
+
+.ReadyLabel {
+	horizontal-align: center;
+	vertical-align: center;
+	color: white;
+	text-transform: uppercase;
+	color: #4EA350;
+	font-size: 24px;
+	font-weight: semi-bold;
+	letter-spacing: 2px;
+}

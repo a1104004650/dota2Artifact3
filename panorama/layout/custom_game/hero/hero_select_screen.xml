@@ -1,0 +1,116 @@
+<root>
+    <styles>
+        <include src="file://{resources}/styles/custom_game/hero/hero_select_screen.css" />
+
+        <include src="file://{resources}/styles/custom_game/card/custom_player_card.css" />
+    </styles>
+    <scripts>
+        <include src="file://{resources}/scripts/custom_game/common/common_util.js" />
+
+        <include src="file://{resources}/scripts/custom_game/hero/hero_select_screen.js" />
+
+        <include src="file://{resources}/scripts/custom_game/task/camp_task.js" />
+
+        <include src="file://{resources}/scripts/custom_game/common/hero_info.js" />
+    </scripts>
+    <script>
+        (function () {
+            initData();
+        })();
+    </script>
+    <Panel class="HeroSelectPanel">
+        <Panel id="InitAllHero" class="Hidden">
+            <!-- TODO js insert -->
+            <!-- init image resource -->
+            <Image class="CampImg" src="file://{images}/custom_game/card/11003_psd.png" />
+            <Image class="CampImg" src="file://{images}/custom_game/card/10674_psd.png" />
+            <Image class="CampImg" src="file://{images}/custom_game/card/10059_psd.png" />
+            <Image class="CampImg" src="file://{images}/custom_game/card/10048_psd.png" />
+            <Image class="CampImg" src="file://{images}/custom_game/card/10050_psd.png" />
+            <Image class="CampImg" src="file://{images}/custom_game/card/10062_psd.png" />
+            <Image class="CampImg" src="file://{images}/custom_game/card/10811_psd.png" />
+            <Image class="CampImg" src="file://{images}/custom_game/card/10982_psd.png" />
+            <Image class="CampImg" src="file://{images}/custom_game/card/10064_psd.png" />
+            <Image class="CampImg" src="file://{images}/custom_game/card/10038_psd.png" />
+            <Image class="CampImg" src="file://{images}/custom_game/card/10028_psd.png" />
+            <Image class="CampImg" src="file://{images}/custom_game/card/10032_psd.png" />
+            <Image class="CampImg" src="file://{images}/custom_game/card/10026_psd.png" />
+            <Image class="CampImg" src="file://{images}/custom_game/card/10054_psd.png" />
+        </Panel>
+        <Label id="TimeInt" text="XX" />
+        <Countdown startTime="1" endTime="10" timeDialogVariable="countDownTime" />
+        <!-- 倒计时 -->
+        <Panel class="Header">
+            
+            <!-- 对阵情况 -->
+            <Panel class="HeroSelectCampPanel">
+                <Panel class="HeroSelectVSCampPanel">
+                    <Image class="CampImg" src="file://{images}/custom_game/card/1098_psd.png" />
+                    <Label id="RadiantPlayerNum" text="x0" />
+                    <Image class="CampImg2" src="file://{images}/custom_game/card/1526_psd.png" />
+                    <Label id="DirePlayerNum" text="x0" />
+                    <Image class="CampImg3" src="file://{images}/custom_game/card/1009_psd.png" />
+                    <Label id="NeutralPlayerNum" text="x0" />
+                </Panel>
+            </Panel>
+            <!-- 中立任务 -->
+            <Panel id="NeutralTaskPanel">
+                <Label id="NeutralTaskText" text="?" />
+            </Panel>
+        </Panel>
+
+        <Panel class="HeroSelectBody">
+            <Panel class="HeroSelectTeamUI">
+                <!-- 天辉夜魇中立，选择区 -->
+                <Label text="#YOUR_TEAM" />
+                <Image id="HeroSelectPlayerTeam" src="file://{images}/custom_game/card/deckart_randommode_psd.png" />
+                <Label text="#NEXT_PLAYER_TEAM" />
+                <Image id="HeroSelectNextPlayerTeam" src="file://{images}/custom_game/card/deckart_randommode_psd.png" />
+            </Panel>
+            <Panel class="HeroSelectUI">
+                <!-- 英雄选择区 -->
+                <!-- TODO js insert -->
+                <Panel class="PlayerHeroInfo">
+                    <Image id="ChooseHeroInfo1" onmouseactivate="selectHero(1)" src="file://{images}/custom_game/card/10017_psd.png" />
+                </Panel>
+
+                <Panel class="PlayerHeroInfo">
+                    <Image id="ChooseHeroInfo2" onmouseactivate="selectHero(2)" src="file://{images}/custom_game/card/10017_psd.png" />
+                </Panel>
+
+                <Panel class="PlayerHeroInfo">
+                    <Image id="ChooseHeroInfo3" onmouseactivate="selectHero(3)" src="file://{images}/custom_game/card/10017_psd.png" />
+                </Panel>
+
+            </Panel>
+        </Panel>
+        <!-- 英雄技能介绍   -->
+        <Panel class="HeroInfoPanel">
+            <Label id="HeroName" text="?" />
+
+            <Label id="HeroCamp" text="?" />
+
+            <Panel class="HeroInfoAttrPanel">
+                <Image src="file://{images}/custom_game/icon/cardstat_attack_psd.png" />
+                <Label id="HeroAtk" text="?" />
+                <Image src="file://{images}/custom_game/icon/cardstat_armor_psd.png" />
+                <Label id="HeroDef" text="?" />
+                <Image src="file://{images}/custom_game/icon/cardstat_health_psd.png" />
+                <Label id="HeroHealth" text="?" />
+                <Image src="file://{images}/custom_game/icon/cardtype_spell_02_psd.png" />
+                <Label id="HeroAnger" text="?" />
+            </Panel>
+
+            <Panel id="HeroInfoSkill" class="HeroInfoSkillPanel">
+                <!-- TODO js insert -->
+                <Label id="HeroInfoSkill1" text="" />
+                <Label id="HeroInfoSkill2" text="" />
+                <Label id="HeroInfoSkill3" text="" />
+            </Panel>
+
+        </Panel>
+        <Button id="Button">
+            <Label class="ButtonLabel" text="#READY_TEXT2" onmouseactivate="selectHeroAndReadyToServer()" />
+        </Button>
+    </Panel>
+</root>

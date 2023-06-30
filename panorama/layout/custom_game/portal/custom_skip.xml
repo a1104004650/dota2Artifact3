@@ -1,0 +1,12 @@
+<root>
+    <scripts>
+        <include src="file://{resources}/scripts/custom_game/common/common_util.js" />
+    </scripts>
+     <script>
+        (function () {
+            $SYSTEM.GAME_FUNCTION.skipGameStata();
+        })();
+    </script>
+    <Panel>
+    </Panel>
+</root>

@@ -1,0 +1,33 @@
+Label {
+    color: rgb(240, 240, 240);
+    font-size: 22;
+}
+.PanelClass {
+    background-image: url("file://{resources}/images/custom_game/loading.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.Panball {
+    background-image: url("file://{resources}/images/custom_game/texture/campaign_popup_background_png.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 400px;
+    height: 235px;
+    border-bottom-left-radius: 30px 30px;
+    border-bottom-right-radius: 30px 30px;
+    position: 4% 8% 0px;
+    layout-position: fixed;
+    padding: 50px;
+}
+#grideText {
+    margin-top: 50px;
+}
+.PanelLogo {
+    width: 150px;
+    height: 150px;
+    background-image: url("file://{resources}/images/custom_game/logo.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: 5% 80% 0px;
+    layout-position: fixed;
+}

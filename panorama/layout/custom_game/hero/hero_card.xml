@@ -1,0 +1,8 @@
+<root type="HeroCard"> 
+    <styles>
+        <include src="file://{resources}/styles/custom_game/card/custom_player_card.css" />
+    </styles>
+    <Panel class='PlayerHeroInfo'>
+        <Image src='file://{images}/custom_game/card/10016_psd.png' />
+    </Panel>
+</root>

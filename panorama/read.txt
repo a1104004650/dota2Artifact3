@@ -1,0 +1,133 @@
+游戏初始化流程
+-- 开始阶段
+-- 准备就绪阶段
+	-- 模式选择，归票（中立玩家数量， 是否允许使用超卡， 中立任务数量）
+		-- 选择完后点击开始 进入下一个阶段
+-- 英雄选择阶段
+	-- 每个玩家在简单的初始化后 提交个人信息到服务端
+	-- 归纳所有的玩家数量，分配阵营，位置信息，英雄信息，客户信息，如果有中立玩家的话 中立任务
+		-- 玩家监听到自己的信息并渲染 分配阵营，位置信息，英雄信息，客户信息，如果有中立玩家的话 中立任务
+	-- 客户端选择英雄 30秒（未选择则随机）
+		-- 选择完毕后提交事件到 服务端 锁定界面
+		-- 当所有玩家提交完成后 客户端整理信息
+	-- 服务端收到信息组装参数 返回客户端进入下一个阶段
+-- 策略阶段 （跳过）
+-- 进入游戏
+	-- 页面初始化 通知客户端玩家初始化完毕 请求所有信息
+	-- 服务端返回所有信息
+	-- 客户端初始化完成 通知服务端
+	-- 服务端对 第一个玩家下命令让他开始游戏
+
+
+
+最少是4个玩家
+4[2,1,1]
+5[2,2,1]
+6[3,2,1]
+7[3,3,1]
+8[4,3,1]
+8[3,3,2]
+9[4,4,1]
+初始化时客户端发送给服务端目前玩家数量。
+如果游戏进入英雄选择阶段，那么服务端触发 分配阵营事件。
+分配完阵营后向每个玩家发送 阵营信息，玩家英雄信息，游戏信息阶段。 （服务端会计算出当前玩家的阵营，以及下家阵营）
+所有玩家都接收到阵营信息，和个人信息之后。开始选择英雄。
+每当玩家选择一个英雄后，同步给服务端。（当所有玩家都选择完后）触发回合开始事件发送给所有客户端( 阵营信息，玩家英雄信息，游戏信息阶段)，并发送给下标为0的客户端抽排开始。
+
+Game.SetRemainingSetupTime( float flSeconds )在比赛开始前在团队设置中设置剩余的秒数。-1 停止倒计时
+script_reload
+script_attach_debugger
+
+玩家 player:
+	英雄 HERO:
+		img 立绘
+		headImg 头像
+		name 名字，国际化
+		atk 攻击力（物理攻击力）(攻击力分为普通，纯粹，穿刺)
+		def 护甲
+		he 生命值
+		anger 怒气（使用技能时拥有，被敌人攻击时 + 1伤害越高怒气越高）
+		maxHe 最大生命值上限
+		maxCard 手牌上限
+		ability 技能[]
+			skillName 技能名字
+			cost 花费怒气
+			desc 描述
+			type 技能类型 （
+				AS 指向一个或者多个目标释放，
+				ASCM 指向一个或者多个目标释放 但需要选择自己手牌，
+				ASCT 指向一个或者多个目标释放 但需要选择他人手牌，
+				RA 无目标释放, 
+				RAM 无目标释放但需要自己手牌, 
+				ASCMS 打出特定牌时触发
+				SD 被动技能无论何时都生效
+				EC 被他人回合的卡牌指定
+			）
+			assignNum 指定数量 AS ASCM ASCT ASCMS时生效
+			filterCardType 过滤某些卡牌类型 仅在 AS ASCM ASCT ASCMS时有用
+			damageType 伤害类型 D 物理伤害 E 穿刺伤害 C 纯粹伤害 L 体力流失（没有伤害来源）
+			scene 场景 OTHER 其他人回合 SELF 自己回合 ALL 所有人回合生效
+			stage 阶段 start 开始阶段 deter 判定阶段 touch 摸牌阶段 playing 出牌阶段 discard 弃牌阶段 end 结束阶段 dStart 他人开始阶段 dDter 他人判定阶段 dPlaying 他人判定阶段 all任何阶段。。。
+			cd 1回合多少次    1 1次 2 2次 3 3次 0 无限次
+		item 物品栏
+			arms 武器
+			armor 防具
+			ornament 饰品[]
+		keyword division 分裂
+		state 状态[]	击晕 stun，缴械 disarm，重伤 injured，濒死 Dying，死亡 death，正常 normal，禁足 cantwalk，流血 bleeding
+		
+	玩家属性 customerInfo:
+		id 玩家id
+		steamId steamId
+		steamName steam昵称
+		steamImg steam头像
+		胜率。。
+		游玩场次
+		MVP次数
+		成就【】
+		游玩纪录【】
+		S0段位
+	
+	玩家游戏属性 playerInfo:
+		position 位置 1 - 8
+		group 阵营 radiant 天辉 dire 夜魇 neutral 中立
+		
+DOTA_GameState
+DOTA_GameState.DOTA_GAMERULES_STATE_INIT	0	初始化
+DOTA_GameState.DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD	1	等待玩家登陆
+DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION	3	英雄选择
+DOTA_GameState.DOTA_GAMERULES_STATE_STRATEGY_TIME	4	决策时间
+DOTA_GameState.DOTA_GAMERULES_STATE_PRE_GAME	7	赛前
+DOTA_GameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS	8	游戏正在进行中
+DOTA_GameState.DOTA_GAMERULES_STATE_POST_GAME	9	赛后
+DOTA_GameState.DOTA_GAMERULES_STATE_DISCONNECT	10	断开
+DOTA_GameState.DOTA_GAMERULES_STATE_TEAM_SHOWCASE	5	团队展示
+DOTA_GameState.DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP	2	模式选择
+DOTA_GameState.DOTA_GAMERULES_STATE_WAIT_FOR_MAP_TO_LOAD	6	地图加载中
+DOTA_GameState.DOTA_GAMERULES_STATE_LAST     最后
+
+
+DOTA_GC_TEAM
+DOTA_GC_TEAM.DOTA_GC_TEAM_GOOD_GUYS	0	在线
+DOTA_GC_TEAM.DOTA_GC_TEAM_BAD_GUYS	1	掉线
+DOTA_GC_TEAM.DOTA_GC_TEAM_BROADCASTER	2	解说
+DOTA_GC_TEAM.DOTA_GC_TEAM_SPECTATOR	3	观众
+DOTA_GC_TEAM.DOTA_GC_TEAM_PLAYER_POOL	4	玩家池
+DOTA_GC_TEAM.DOTA_GC_TEAM_NOTEAM      未分组
+
+DOTAConnectionState_t
+DOTAConnectionState_t.DOTA_CONNECTION_STATE_UNKNOWN	0	未知
+DOTAConnectionState_t.DOTA_CONNECTION_STATE_NOT_YET_CONNECTED	1	未连接
+DOTAConnectionState_t.DOTA_CONNECTION_STATE_CONNECTED	2	在线
+DOTAConnectionState_t.DOTA_CONNECTION_STATE_DISCONNECTED	3	断开连接
+DOTAConnectionState_t.DOTA_CONNECTION_STATE_ABANDONED	4	放弃
+DOTAConnectionState_t.DOTA_CONNECTION_STATE_LOADING	5	连接中
+DOTAConnectionState_t.DOTA_CONNECTION_STATE_FAILED    连接失败
+
+DOTAMusicStatus_t
+DOTAMusicStatus_t.DOTA_MUSIC_STATUS_NONE	0	
+DOTAMusicStatus_t.DOTA_MUSIC_STATUS_EXPLORATION	1	
+DOTAMusicStatus_t.DOTA_MUSIC_STATUS_BATTLE	2	
+DOTAMusicStatus_t.DOTA_MUSIC_STATUS_PRE_GAME_EXPLORATION	3	
+DOTAMusicStatus_t.DOTA_MUSIC_STATUS_DEAD	4	
+DOTAMusicStatus_t.DOTA_MUSIC_STATUS_LAST

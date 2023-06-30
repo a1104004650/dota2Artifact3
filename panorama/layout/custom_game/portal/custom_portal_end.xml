@@ -1,0 +1,8 @@
+<root type="HeroSelection"> 
+    <Panel>
+        <!-- 最左侧，英雄卡片放置处 -->
+        <Image  src= "file://{images}/custom_game/my_image.png"  />
+    </Panel>
+    <Panel>
+    </Panel>
+</root>
